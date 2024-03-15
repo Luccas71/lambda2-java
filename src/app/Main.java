@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Locale;
 
 import entities.Product;
-import util.PredicateProduct;
 
 public class Main {
 
@@ -20,7 +19,7 @@ public class Main {
         list.add(new Product("Mousepad", 45.0));
         list.add(new Product("Monitor", 400.0));
 
-        list.removeIf(new PredicateProduct());
+        list.removeIf(Product::staticPredicate);
 
         for (Product p : list) {
             System.out.println(p);
