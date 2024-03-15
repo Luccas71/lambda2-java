@@ -19,7 +19,7 @@ public class Main {
         list.add(new Product("Mousepad", 45.0));
         list.add(new Product("Monitor", 400.0));
 
-        list.removeIf(Product::staticPredicate);
+        list.removeIf(Product::nonStaticPredicate);
 
         for (Product p : list) {
             System.out.println(p);
