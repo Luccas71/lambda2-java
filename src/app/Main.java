@@ -3,6 +3,7 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import entities.Product;
 
@@ -19,7 +20,11 @@ public class Main {
         list.add(new Product("Mousepad", 45.0));
         list.add(new Product("Monitor", 400.0));
 
-        list.removeIf(Product::nonStaticPredicate);
+        double min = 100.0;
+
+        Predicate<Product> pred = p -> p.getPrice() >= min;
+
+        list.removeIf(pred);
 
         for (Product p : list) {
             System.out.println(p);
